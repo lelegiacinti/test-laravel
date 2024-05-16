@@ -11,10 +11,10 @@ class HomeController extends Controller
 {
     public function render(): View
     {
-        $brewery = $this->getPaginatedBreweryList();
+        $breweries = $this->getPaginatedBreweryList();
 
         return view('dashboard', [
-            'brewery' => $brewery
+            'breweries' => $breweries
         ]);
     }
 
