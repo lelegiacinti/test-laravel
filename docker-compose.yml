@@ -3,6 +3,8 @@ version: "3.9"
 
 services:
     app:
+        depends_on:
+            -   db
         container_name: app
         build:
             context: .
@@ -24,6 +26,6 @@ services:
             - MYSQL_DATABASE=${DB_DATABASE}
             - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
         ports:
-            - 33061:3306
+            - 60000:3306
         volumes:
             - ./.var/mysql:/var/lib/mysql
