@@ -9,11 +9,23 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    @foreach($breweries as $brewery)
-                        <li>
-                            {{ $brewery['name'] }}
-                        </li>
-                    @endforeach
+                    <div class="space-y-8 md:grid md:grid-cols-3 lg:grid-cols-4 auto-rows-fr md:gap-12 md:space-y-0 ">
+                        @foreach($breweries as $brewery)
+                            <div class="rounded overflow-hidden shadow-lg w-1/3">
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl mb-2">{{ $brewery['name'] }}</div>
+                                    <p class="text-gray-700 text-base">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                                    </p>
+                                </div>
+                                <div class="px-6 pt-4 pb-2">
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
