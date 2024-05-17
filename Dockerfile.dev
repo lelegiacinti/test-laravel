@@ -8,7 +8,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-install pdo mysqli pdo_mysql mbstring
 
 COPY . /var/www/html
-RUN composer install
 
 EXPOSE 8000
 
