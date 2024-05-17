@@ -123,4 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'breweries_url' => env('BREWERIES_URL', 'https://api.openbrewerydb.org/v1/breweries'),
+
 ];
