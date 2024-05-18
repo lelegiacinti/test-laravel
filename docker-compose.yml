@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+    app:
+        depends_on:
+            -   db
+        container_name: app
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        develop:
+            watch:
+                - path: composer.json
+                  target: /var/www/html/composer.json
+                  action: rebuild
+        volumes:
+            - .:/var/www/html
+        ports:
+            - 8000:8000
+
+    nodebuilder:
+        image: node
+        working_dir: /app
+        command: bash -c "npm install && npm run dev -- --host"
+        volumes:
+            - .:/app
+        ports:
+            - 5173:5173
+
+    db:
+        image: mysql
+        container_name: db
+        environment:
+            - MYSQL_DATABASE=${DB_DATABASE}
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        ports:
+            - 60000:3306
+        volumes:
+            - ./.var/mysql:/var/lib/mysql
