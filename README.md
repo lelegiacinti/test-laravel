@@ -1,12 +1,25 @@
-## Progetto test Laravel
+# Test Project test Laravel - Breweries List
 
-## Come avviare il progetto
+With this web application you can register an user and log in. 
+In the main page (dashboard) you can see a paginated list of breweries from around the world
 
-### 1. Lanciare il comando: docker compose --env-file .env up
-### 2. Navigare la pagina 127.0.0.1:8000
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
 
-## Cosa permette di fare l'applicazione
+## Installation
 
-### 1. Possibilità di registrarsi e di loggarsi all'interno dell'app
-### 2. Dalla schermata di dashboard è possibile visualizzare un elenco paginato di birrerie
+1. Clone the repository:
+```bash
+ git clone https://github.com/lelegiacinti/test-laravel
+```
 
+2. Build the container image:
+```bash
+docker compose --env-file .env up
+ ```
+
+## Usage
+Navigate the following url to open the application:
+
+http://127.0.0.1:8000
