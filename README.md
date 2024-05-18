@@ -14,7 +14,7 @@ In the main page (dashboard) you can see a paginated list of breweries from arou
  git clone https://github.com/lelegiacinti/test-laravel
 ```
 
-2. Build the containers image:
+2. Build the container image:
 ```bash
 docker compose --env-file .env up
  ```
