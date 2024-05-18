@@ -20,38 +20,48 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="mt-6 flex justify-end gap-3">
+                    <div class="mt-6 flex justify-end sm:gap-0.5 md:gap-3">
                         @if($currentPage > 1)
-                            <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0" href="{{ route('dashboard', ['page' => $currentPage - 1]) }}">Previous</a>
+                            <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0" href="{{ route('dashboard', ['page' => $currentPage - 1]) }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                                </svg>
+                            </a>
                         @endif
-                        @if($currentPage > 7)
+                        @if($currentPage > 4)
                             <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0" href="{{ route('dashboard', ['page' => 1]) }}">1</a>
                         @endif
-                        @for($i = 3; $i >= 1; $i--)
+                        @for($i = 2; $i >= 1; $i--)
                             @if($currentPage - $i > 0)
-                                <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                                <a class="max-sm:hidden relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                                    href="{{ route('dashboard', ['page' => $currentPage - $i]) }}"
                                 >{{ $currentPage - $i }}</a>
                             @endif
                         @endfor
                         <a class="relative bg-indigo-600 inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-200 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                            href="{{ route('dashboard', ['page' => $currentPage]) }}">{{ $currentPage }}</a>
-                        @for($i = 1; $i <= 3; $i++)
+                        @for($i = 1; $i <= 2; $i++)
                             @if($currentPage + $i < $pages)
-                                <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                                <a class="max-sm:hidden relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                                    href="{{ route('dashboard', ['page' => $currentPage + $i]) }}"
                                 >{{ $currentPage + $i }}</a>
                             @endif
                         @endfor
-                        @if($currentPage < $pages - 3)
-                            <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        @if($currentPage < $pages - 4)
+                            <a class="max-sm:hidden relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                                href="#">...</a>
                         @endif
-                        <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                           href="{{ route('dashboard', ['page' => $pages]) }}">{{ $pages }}</a>
+                        @if($currentPage != $pages)
+                            <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                               href="{{ route('dashboard', ['page' => $pages]) }}">{{ $pages }}</a>
+                        @endif
                         @if($currentPage < $pages)
                             <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                               href="{{ route('dashboard', ['page' => $currentPage + 1]) }}">Next</a>
+                               href="{{ route('dashboard', ['page' => $currentPage + 1]) }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </a>
                         @endif
                     </div>
                 </div>
